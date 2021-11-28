@@ -62,8 +62,8 @@
                 app:layout_constraintStart_toStartOf="@+id/tv_detail_game_name"
                 app:layout_constraintTop_toBottomOf="@+id/tv_detail_game_name" />
 
-            <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/vp_trailer"
+            <FrameLayout
+                android:id="@+id/fl_1"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginTop="8dp"
@@ -71,7 +71,34 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/textView2" />
+                app:layout_constraintTop_toBottomOf="@id/textView2">
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/lottie_movie"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:lottie_autoPlay="true"
+                    app:lottie_fileName="video_loading.json"
+                    app:lottie_loop="true"
+                    android:visibility="gone"/>
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/vp_trailer"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_width="match_parent"/>
+
+                <me.relex.circleindicator.CircleIndicator3
+                    android:id="@+id/movie_indicator"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="4dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    app:ci_animator="@animator/scale_with_alpha"
+                    app:ci_drawable="@drawable/white_radius"
+                    app:ci_drawable_unselected="@drawable/white_radius" />
+            </FrameLayout>
 
             <TextView
                 android:id="@+id/textView3"
@@ -81,7 +108,7 @@
                 android:layout_marginTop="16dp"
                 android:text="@string/description"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/vp_trailer" />
+                app:layout_constraintTop_toBottomOf="@+id/fl_1" />
 
             <TextView
                 android:id="@+id/tv_game_description"
@@ -210,8 +237,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_game_website" />
 
-            <androidx.viewpager2.widget.ViewPager2
-                android:id="@+id/vp_screenshot"
+            <FrameLayout
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginTop="8dp"
@@ -220,7 +246,34 @@
                 app:layout_constraintDimensionRatio="h, 16:9"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView13" />
+                app:layout_constraintTop_toBottomOf="@+id/textView13">
+
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/vp_screenshot"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"/>
+
+                <me.relex.circleindicator.CircleIndicator3
+                    android:id="@+id/ss_indicator"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginBottom="4dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    app:ci_animator="@animator/scale_with_alpha"
+                    app:ci_drawable="@drawable/white_radius"
+                    app:ci_drawable_unselected="@drawable/white_radius" />
+
+                <com.airbnb.lottie.LottieAnimationView
+                    android:id="@+id/lottie_screenshot"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:lottie_autoPlay="true"
+                    app:lottie_fileName="video_loading.json"
+                    app:lottie_loop="true"
+                    android:visibility="gone"/>
+            </FrameLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </ScrollView>

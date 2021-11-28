@@ -65,12 +65,23 @@ class DetailActivity : AppCompatActivity() {
         detailViewModel.getGameScreenshot(id, reload= false).observe(this, {gameSS ->
             if (gameSS != null){
                 when (gameSS){
-                    is Resource.Loading -> binding?.vpScreenshot?.setBackgroundResource(R.drawable.ic_image_loading)
+                    is Resource.Loading -> binding?.lottieScreenshot?.visibility= View.VISIBLE
 
-                    is Resource.Success -> screenshotAdapter.setData(gameSS.data)
+                    is Resource.Success -> {
+                        screenshotAdapter.setData(gameSS.data)
+                            if (gameSS.data?.isEmpty()==true){
+                                binding?.lottieScreenshot?.visibility= View.VISIBLE
+                                binding?.lottieScreenshot?.setAnimation("empty_box.json")
+                                binding?.lottieScreenshot?.playAnimation()
+                            }else{
+                                binding?.lottieScreenshot?.visibility= View.GONE
+                                binding?.ssIndicator?.setViewPager(binding?.vpScreenshot)
+                            }
+                    }
 
                     is Resource.Error -> {
-                        binding?.vpScreenshot?.setBackgroundResource(R.drawable.ic_image_loading)
+                        binding?.lottieScreenshot?.setAnimation("error.json")
+                        binding?.lottieScreenshot?.playAnimation()
                         Toast.makeText(this, "Screenshot Error: ${gameSS.message}", Toast.LENGTH_LONG).show()
                     }
                 }
@@ -80,12 +91,23 @@ class DetailActivity : AppCompatActivity() {
         detailViewModel.getGameMovie(id, reload = false).observe(this, {gameMovie->
             if (gameMovie != null){
                 when(gameMovie){
-                    is Resource.Loading -> binding?.vpTrailer?.setBackgroundResource(R.drawable.ic_image_loading)
+                    is Resource.Loading -> binding?.lottieMovie?.visibility= View.VISIBLE
 
-                    is Resource.Success -> videoAdapter.setData(gameMovie.data)
+                    is Resource.Success -> {
+                        videoAdapter.setData(gameMovie.data)
+                        if (gameMovie.data?.isEmpty() == true){
+                            binding?.lottieMovie?.visibility= View.VISIBLE
+                            binding?.lottieMovie?.setAnimation("empty_box.json")
+                            binding?.lottieMovie?.playAnimation()
+                        }else{
+                            binding?.movieIndicator?.setViewPager(binding?.vpTrailer)
+                            binding?.lottieMovie?.visibility= View.GONE
+                        }
+                    }
 
                     is Resource.Error -> {
-                        binding?.vpTrailer?.setBackgroundResource(R.drawable.ic_image_loading)
+                        binding?.lottieMovie?.setAnimation("error.json")
+                        binding?.lottieMovie?.playAnimation()
                         Toast.makeText(this, "Video Error: ${gameMovie.message}", Toast.LENGTH_LONG).show()
                     }
                 }
