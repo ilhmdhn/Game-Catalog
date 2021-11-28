@@ -28,7 +28,7 @@ val databaseModule = module {
             androidContext(),
             GameDatabase::class.java, "Game.db"
         ).fallbackToDestructiveMigration()
-            .openHelperFactory(factory)
+//            .openHelperFactory(factory)
             .build()
     }
 }

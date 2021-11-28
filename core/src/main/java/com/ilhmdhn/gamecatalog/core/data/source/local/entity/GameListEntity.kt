@@ -11,14 +11,14 @@ data class GameListEntity(
     @PrimaryKey
     @NonNull
     @ColumnInfo(name = "id")
-    val id: Int,
+    val id: Int?,
 
     @ColumnInfo(name = "name")
-    val name: String,
+    val name: String?,
 
     @ColumnInfo(name = "background_image")
-    val backgroundImage: String,
+    val backgroundImage: String?,
 
     @ColumnInfo(name = "rating")
-    val rating: Float
+    val rating: Float?
 )

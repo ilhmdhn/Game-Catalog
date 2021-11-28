@@ -1,9 +1,18 @@
 package com.ilhmdhn.gamecatalog.core.domain.usecase
 
 import com.ilhmdhn.gamecatalog.core.data.Resource
+import com.ilhmdhn.gamecatalog.core.domain.model.GameDetailModel
 import com.ilhmdhn.gamecatalog.core.domain.model.GameListModel
+import com.ilhmdhn.gamecatalog.core.domain.model.GameMovieModel
+import com.ilhmdhn.gamecatalog.core.domain.model.GameScreenshotModel
 import kotlinx.coroutines.flow.Flow
 
 interface GameUseCase {
-    fun getListGame(): Flow<Resource<List<GameListModel>>>
+    fun getListGame(search: String, reload: Boolean): Flow<Resource<List<GameListModel>>>
+
+    fun getDetailGame(id: Int, reload: Boolean): Flow<Resource<GameDetailModel>>
+
+    fun getScreenshotGame(gameId: Int, reload: Boolean): Flow<Resource<List<GameScreenshotModel>>>
+
+    fun getMovieGame(gameId: Int, reload: Boolean): Flow<Resource<List<GameMovieModel>>>
 }
