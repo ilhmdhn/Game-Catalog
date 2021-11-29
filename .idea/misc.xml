@@ -6,11 +6,11 @@
         <entry key="app/src/main/res/drawable-v24/ic_image_loading.xml" value="0.38125" />
         <entry key="app/src/main/res/drawable-v24/white_radius.xml" value="0.1814814814814815" />
         <entry key="app/src/main/res/drawable/white_radius.xml" value="0.1814814814814815" />
-        <entry key="app/src/main/res/layout/activity_detail.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_detail.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="app/src/main/res/menu/menu_main.xml" value="0.1" />
         <entry key="core/src/main/res/drawable/ic_image_loading.xml" value="0.30092592592592593" />
-        <entry key="core/src/main/res/layout/list_game.xml" value="0.5" />
+        <entry key="core/src/main/res/layout/list_game.xml" value="0.33" />
         <entry key="core/src/main/res/layout/screenshot_game.xml" value="0.11018518518518519" />
         <entry key="core/src/main/res/layout/video_game.xml" value="0.11018518518518519" />
       </map>
