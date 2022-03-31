@@ -5,6 +5,7 @@ plugins {
     id 'kotlin-kapt'
 }
     apply from:'../shared_dependencies.gradle'
+apply plugin: 'kotlin-android'
 
 android {
     compileSdk 31
@@ -44,4 +45,10 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.4.0'
     implementation 'com.google.android.material:material:1.4.0'
     implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
+    implementation "androidx.core:core-ktx:+"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.0.0"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 }
+//repositories {
+//    mavenCentral()
+//}
